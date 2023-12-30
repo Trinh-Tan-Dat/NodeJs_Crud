@@ -88,18 +88,7 @@ app.post('/login', (req, res)=>{
 		}
 	})
 })
-//Handle register
-app.post('/register', (req, res) => {
-  const sql = "INSERT INTO login SET ?";
-  const data = { Name: req.body.Name, UserName: req.body.UserName, Password: req.body.Password };
-  db.query(sql, data, (err, result) => {
-    if (err) {
-      return res.json(err);
-    } else {
-      return res.json(result);
-    }
-  });
-});
+
 
 //get book
 app.get('/book', (req, res)=>{
@@ -127,3 +116,18 @@ app.get('/book/:id', (req, res)=>{
 		}
 	})
 })
+//add book
+app.post('/addbook', (req, res)=>{
+	const sql = "INSERT INTO borrowed SET ?";
+	const data = {book_ID: req.body.book_ID, book_Name: req.body.book_Name, quantity: req.body.quantity, borrowing_date: req.body.borrowing_date, expiration_date: req.body.expiration_date};
+	db.query(sql, data, (err, result)=>{
+		if(err){
+			return res.json(err);
+		}
+		else{
+			return res.json(result);
+		}
+	})
+})
+
+
