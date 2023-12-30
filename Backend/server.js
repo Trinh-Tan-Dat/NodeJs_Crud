@@ -113,3 +113,17 @@ app.get('/book', (req, res)=>{
 		}
 	})
 })
+
+//get book by id
+app.get('/book/:id', (req, res)=>{
+	const sql = "Select * from book where id = ?";
+	const id = req.params.id;
+	db.query(sql, id, (err, data)=>{
+		if(err){
+			return res.json(err);
+		}
+		else{
+			return res.json(data);
+		}
+	})
+})
