@@ -21,7 +21,7 @@ function HomeScreen() {
         <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div className="navbar-nav">
             <a className="nav-item nav-link active" href="/Home">
-              Home <span className="sr-only">(current)</span>
+              Home <span className="sr-only"></span>
             </a>
             <a className="nav-item nav-link" href="#">
               Login

@@ -12,12 +12,35 @@ function Borrow() {
           console.log(data)
           setBook(data)
         })
-    }, [])
-    const HandleSubmit = () => {
-      //fetch data from input
-      console.log(inputValue)
-
-    }
+      }, [])
+      // const data = { book_ID: bookId, quantity: inputValue, book_Name: book.Name, borrowing_date: new Date(), borrowing_date: new Date() + 30};
+      const HandleSubmit = () => {
+        if (book.length > 0) {
+          const borrowingDate = new Date();
+          const dueDate = new Date();
+          dueDate.setDate(dueDate.getDate() + 30);
+      
+          const data = {
+            book_ID: bookId,
+            quantity: inputValue,
+            book_Name: book[0].Name,
+            borrowing_date: borrowingDate.toISOString(),
+            expiration_date: dueDate.toISOString(),
+          };
+      
+          fetch('http://localhost:3033/addbook', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data),
+          })
+            .then((res) => res.json())
+            .then((data) => console.log(data))
+            .catch((err) => console.log(err));
+        }
+        
+      };
   return (
     <div>
         <HomeScreen />
