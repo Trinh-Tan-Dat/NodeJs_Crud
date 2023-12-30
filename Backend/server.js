@@ -18,7 +18,6 @@ app.post('/add', (req, res)=>{
 	const data = {ID: req.body.ID, Name: req.body.Name, mail: req.body.mail, Phone: req.body.Phone};
 	db.query(sql, data, (err, result)=>{
 		if(err){
-			console.log("@2222")
 			return res.json(err);
 		}
 		else{
@@ -101,3 +100,16 @@ app.post('/register', (req, res) => {
     }
   });
 });
+
+//get book
+app.get('/book', (req, res)=>{
+	const sql = "Select * from book";
+	db.query(sql, (err, data)=>{
+		if(err){
+			return res.json(err);
+		}
+		else{
+			return res.json(data);
+		}
+	})
+})
