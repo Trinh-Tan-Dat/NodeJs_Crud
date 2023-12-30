@@ -119,7 +119,7 @@ app.get('/book/:id', (req, res)=>{
 //add book
 app.post('/addbook', (req, res)=>{
 	const sql = "INSERT INTO borrowed SET ?";
-	const data = {book_ID: req.body.book_ID, book_Name: req.body.book_Name, quantity: req.body.quantity, borrowing_date: req.body.borrowing_date, expiration_date: req.body.expiration_date};
+	const data = {book_ID: req.body.book_ID, book_Name: req.body.book_Name, quantity: req.body.quantity, borrowing_date: req.body.borrowing_date, expiration_date: req.body.expiration_date, user_Name: req.body.user_Name, Name: req.body.Name};
 	db.query(sql, data, (err, result)=>{
 		if(err){
 			return res.json(err);
@@ -130,4 +130,16 @@ app.post('/addbook', (req, res)=>{
 	})
 })
 
-
+//fetch data from login table with index is UserName
+app.get('/login/:UserName', (req, res)=>{
+	const sql = "Select * from login where UserName = ?";
+	const UserName = req.params.UserName;
+	db.query(sql, UserName, (err, data)=>{
+		if(err){
+			return res.json(err);
+		}
+		else{
+			return res.json(data);
+		}
+	})
+})
