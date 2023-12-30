@@ -5,6 +5,8 @@ function Borrow() {
     const bookId = localStorage.getItem('bookId');
     const [book, setBook] = useState([])
     const [inputValue, setInputValue] = useState('')
+    const UserName = localStorage.getItem('mail');
+    const [userInfor, setUserInfor] = useState([])
     useEffect(() => {
       fetch('http://localhost:3033/book/' + bookId)
         .then(response => response.json())
@@ -13,20 +15,28 @@ function Borrow() {
           setBook(data)
         })
       }, [])
-      // const data = { book_ID: bookId, quantity: inputValue, book_Name: book.Name, borrowing_date: new Date(), borrowing_date: new Date() + 30};
       const HandleSubmit = () => {
         if (book.length > 0) {
           const borrowingDate = new Date();
           const dueDate = new Date();
           dueDate.setDate(dueDate.getDate() + 30);
-      
+          
+          fetch('http://localhost:3033/login/' + UserName)
+          .then(response => response.json())
+          .then(data => {
+            console.log(data)
+            setUserInfor(data)
+          })
           const data = {
             book_ID: bookId,
             quantity: inputValue,
             book_Name: book[0].Name,
             borrowing_date: borrowingDate.toISOString(),
             expiration_date: dueDate.toISOString(),
+            Name: userInfor[0].Name,
+            user_Name: UserName,
           };
+          console.log("dasd" + data.user_Name)
       
           fetch('http://localhost:3033/addbook', {
             method: 'POST',
@@ -39,7 +49,7 @@ function Borrow() {
             .then((data) => console.log(data))
             .catch((err) => console.log(err));
         }
-        
+
       };
   return (
     <div>

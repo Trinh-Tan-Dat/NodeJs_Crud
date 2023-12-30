@@ -1,6 +1,12 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 function HomeScreen() {
+  const navigate = useNavigate();
+  const handleLogout = ()=>{
+    localStorage.removeItem('token');
+    navigate('/');
+  }
   return (
     <div>
       <nav className="navbar navbar-expand-sm navbar-light bg-light">
@@ -24,12 +30,14 @@ function HomeScreen() {
               Home <span className="sr-only"></span>
             </a>
             <a className="nav-item nav-link" href="#">
-              Login
-            </a>
-            <a className="nav-item nav-link" href="#">
               MyBags
             </a>
-            <a className="nav-item nav-link ml-auto" href="#">
+            <a className="nav-item nav-link" href="#">
+              Login
+            </a>
+            <a className="nav-item nav-link ml-auto" href="#"
+              onClick={handleLogout}
+            >
               Log out
             </a>
           </div>

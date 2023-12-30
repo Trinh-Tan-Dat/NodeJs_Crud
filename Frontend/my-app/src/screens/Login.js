@@ -4,7 +4,10 @@ function Login() {
   const [mail, setMail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
+
   const handleLogin = (e) => {
+    //send mail and username to another screen
+    localStorage.setItem('mail', mail);
     e.preventDefault();
     const data = { mail, password };
     fetch('http://localhost:3033/login', {
@@ -15,7 +18,7 @@ function Login() {
       body: JSON.stringify(data),
     }).then((res) => res.json())
       .then((data) => console.log(data))
-      .then(()=>{navigate('/create')})
+      .then(()=>{navigate('/home')})
       .catch((err) => console.log(err));
   };
 
