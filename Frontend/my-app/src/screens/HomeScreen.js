@@ -1,11 +1,16 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-
+import {useState, useEffect} from 'react'
 function HomeScreen() {
   const navigate = useNavigate();
   const handleLogout = ()=>{
     localStorage.removeItem('token');
     navigate('/');
+  }
+  const [userInfor, setUserInfor] = useState([])
+  const userName = localStorage.getItem('mail');
+  const handleMap = ()=>{
+    navigate('/map');
   }
   return (
     <div>
@@ -40,6 +45,12 @@ function HomeScreen() {
             >
               Log out
             </a>
+            <a className="nav-item nav-link ml-auto" href="#"
+              onClick={handleMap}
+            >
+              Map
+            </a>
+
           </div>
         </div>
       </nav>

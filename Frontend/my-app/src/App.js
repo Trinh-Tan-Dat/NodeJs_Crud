@@ -7,6 +7,7 @@ import Register from "./screens/Register"
 import HomeScreen from './screens/HomeScreen';
 import Home from './screens/Home';
 import Borrow from './screens/Borrow';
+import MyMap from './screens/Map';
 function App() {
 
   return (
@@ -18,6 +19,8 @@ function App() {
           <Route path="/Home" element={<Home />} />
           <Route path='/' element={<Login/>}></Route>
           <Route path='/' element={<Register/>}></Route>
+          <Route path='/map' element={<MyMap/>}></Route>
+
         </Routes>
       </BrowserRouter>
       
