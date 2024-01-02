@@ -143,3 +143,33 @@ app.get('/login/:UserName', (req, res)=>{
 		}
 	})
 })
+
+
+//update Amount in book table
+app.put('/updatebook/:id', (req, res)=>{
+	const sql = "UPDATE book SET Amount = ? WHERE ID = ?";
+	const id = req.params.id;
+	const data = [req.body.Amount, id];
+	db.query(sql, data, (err, result)=>{
+		if(err){
+			return res.json(err);
+		}
+		else{
+			return res.json(result);
+		}
+	})
+})
+
+//get borrowed book by user_Name
+app.get('/borrowed/:user_Name', (req, res)=>{
+	const sql = "Select * from borrowed where user_Name = ?";
+	const user_Name = req.params.user_Name;
+	db.query(sql, user_Name, (err, data)=>{
+		if(err){
+			return res.json(err);
+		}
+		else{
+			return res.json(data);
+		}
+	})
+})
