@@ -15,11 +15,11 @@ function App() {
     <div>
       <BrowserRouter>
         <Routes>
+          <Route path='/login' element={<Login/> } index = {true}></Route>
           <Route path="/HomeScreen" element={<HomeScreen />} index={true} />
           <Route path="/borrow" element={<Borrow />} />
           <Route path="/Home" element={<Home />} />
-          <Route path='/' element={<Login/>}></Route>
-          <Route path='/' element={<Register/>}></Route>
+          <Route path='/register' element={<Register/>}></Route>
           <Route path='/map' element={<MyMap/>}></Route>
           <Route path='/mybag' element={<MyBag/>}></Route>
         </Routes>

@@ -23,7 +23,7 @@ function Register() {
       .catch((err) => console.log(err));
   };
   return ( 
-    <div className='d-flex vh-100 bg-primary justify-content-center align-items-center'>
+    <div className='d-flex vh-100 bg-dark justify-content-center align-items-center'>
       <div className='w-50 bg-white rounded p-3'>
         <form onSubmit={handleRegister}>
           <h2>Register</h2>
@@ -57,7 +57,7 @@ function Register() {
               onChange={(e) => setPassword(e.target.value)}
             />
           </div>
-          <button className='btn btn-primary'
+          <button className='btn btn-dark'
             >Register</button>
         </form>
       </div>
