@@ -8,6 +8,7 @@ import HomeScreen from './screens/HomeScreen';
 import Home from './screens/Home';
 import Borrow from './screens/Borrow';
 import MyMap from './screens/Map';
+import MyBag from './screens/MyBag';
 function App() {
 
   return (
@@ -20,7 +21,7 @@ function App() {
           <Route path='/' element={<Login/>}></Route>
           <Route path='/' element={<Register/>}></Route>
           <Route path='/map' element={<MyMap/>}></Route>
-
+          <Route path='/mybag' element={<MyBag/>}></Route>
         </Routes>
       </BrowserRouter>
       

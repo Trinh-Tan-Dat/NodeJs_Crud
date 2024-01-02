@@ -36,7 +36,6 @@ function Borrow() {
             Name: userInfor[0].Name,
             user_Name: UserName,
           };
-          console.log("dasd" + data.user_Name)
       
           fetch('http://localhost:3033/addbook', {
             method: 'POST',
@@ -48,6 +47,18 @@ function Borrow() {
             .then((res) => res.json())
             .then((data) => console.log(data))
             .catch((err) => console.log(err));
+
+
+            fetch('http://localhost:3033/updatebook/' + bookId, {
+              method: 'PUT',
+              headers: {
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify({Amount: book[0].Amount - inputValue}),
+            })
+              .then((res) => res.json())
+              .then((data) => console.log(data))
+              .catch((err) => console.log(err));
         }
 
       };

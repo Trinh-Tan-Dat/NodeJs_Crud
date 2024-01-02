@@ -1,9 +1,10 @@
 import Map, { GeolocateControl } from "react-map-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
-
+import HomeScreen from "./HomeScreen";
 function MyMap() {
   return (
     <div>
+      <HomeScreen />
       <Map
         mapboxAccessToken="pk.eyJ1IjoiMjE1MjA3MTQiLCJhIjoiY2xxdDkxcmZxNGNjOTJpdGt1bDE4enM5YSJ9.iuiZAGB4AskW9VNuFFoc0g"
         initialViewState={{

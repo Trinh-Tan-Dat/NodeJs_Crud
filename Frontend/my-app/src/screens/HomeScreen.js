@@ -12,6 +12,9 @@ function HomeScreen() {
   const handleMap = ()=>{
     navigate('/map');
   }
+  const handleBag = ()=>{
+    navigate('/mybag');
+  }
   return (
     <div>
       <nav className="navbar navbar-expand-sm navbar-light bg-light">
@@ -34,8 +37,8 @@ function HomeScreen() {
             <a className="nav-item nav-link active" href="/Home">
               Home <span className="sr-only"></span>
             </a>
-            <a className="nav-item nav-link" href="#">
-              MyBags
+            <a className="nav-item nav-link" href="#" onClick={handleBag}>
+              MyBag
             </a>
             <a className="nav-item nav-link" href="#">
               Login
