@@ -4,5 +4,6 @@ Use MySql, React, Nodejs, Bootstrap.
 ![image](https://github.com/Trinh-Tan-Dat/NodeJs_Crud/assets/102589157/44924e69-5843-4295-8b29-c409f7db184a)
 ![image](https://github.com/Trinh-Tan-Dat/NodeJs_Crud/assets/102589157/48d903c4-bffd-462d-988a-9b56c588287b)
 ![image](https://github.com/Trinh-Tan-Dat/NodeJs_Crud/assets/102589157/9c175980-46ed-49a3-bacc-276b80a6a1ab)
-![image](https://github.com/Trinh-Tan-Dat/NodeJs_Crud/assets/102589157/94ad5882-5fd4-4872-8367-10952a396a6c)
+![image](https://github.com/Trinh-Tan-Dat/NodeJs_Crud/assets/102589157/cd5c6446-3131-4ca5-a96b-7c9bb13b1055)
+
 
